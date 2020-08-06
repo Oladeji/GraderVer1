@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<h1>MY COURSE LIST</h1>
+{%for crs in courselist%}
+<p>  {{forloop.counter }} {{crs.MYSURNAME}} -{{crs.MYMIDDLENAME}} -{{crs.MYFIRSTNAME}} -{{crs.MYCOURSEID}} :SCORE  {{crs.MYSCORE}}</p>
+{%endfor%}
+
+<div>
+<a href="/download" class="badge badge-primary">Download Courses</a>
+<a href="#" class="badge badge-secondary">Secondary</a>
+<a href="#" class="badge badge-success">Success</a>
+<a href="#" class="badge badge-danger">Danger</a>
+<a href="#" class="badge badge-warning">Warning</a>
+</div>
+{% endblock%}

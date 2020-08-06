@@ -1,0 +1,46 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Score Submission</title>
+    <link rel="stylesheet" href="{%  static 'login.css' %} "/>
+
+</head>
+<body>
+    <div class='bold-line'></div>
+<div class='container'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>Mr. Lecturer.</div>
+      <div class='subtitle'>An awesome opportunity to give students what they deserve.</div>
+      <div class='input-fields'>
+
+    
+         <form method="post" action ="{% url 'login_view' %}">
+         {%csrf_token%}
+
+          {% if form.errors %}
+          <p> There is something wrong with the enries</p>
+            <p> {{ form.errors }}</p>
+          {% endif %}
+           {{form}}
+             <hr>
+        {% comment %} <input type='email' placeholder='Email' class='input-line full-width'></input>
+        <input type='password' placeholder='Password' class='input-line full-width'></input> {% endcomment %}
+      <div><input type="submit"  value ="login_view" class='ghost-round full-width'></div>
+     <input type="hidden" name ="next" value ="{{next}}">
+      </form>
+      </div>
+      <hr>
+  {% comment %} <div><button type="submit"  value ="login" class='ghost-round full-width'>Login</button></div>
+   {% endcomment %}
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

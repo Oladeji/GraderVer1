@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{%block content%}
+ <h3>Two columns</h3>
+ <h1>THIS IS THE LIST OF AVAILABLE COURSES</h1>
+      <p>Get two columns <strong>starting at desktops and scaling to large desktops</strong>.</p>
+      <div class="row">
+         <div class="col-md-4">
+        
+{%for crs in courselist%}
+
+<div class="card">
+  
+  <div class="card-body">
+    <h5 class="card-title">{{ forloop.counter }}. CODE :{{crs.MYCOURSEID}} , UNIT: {{crs.MYCOURSEUNIT}}  </h5>
+     <p class="card-text">  NAME : {{crs.MYCOURSENAME}} </p>
+      <p class="card-text">  SESSION : {{crs.MYASESSIONID}} , SEMESTER : : {{crs.MYSEMESTERID}}</p>
+
+    <a href=" {% url 'displayCourse_view' crs.MYCOURSEGUID%}" class="btn btn-primary">LOAD COURSE</a>
+  </div>
+</div>
+
+{%endfor%}
+        
+ </div>
+ <div class="col-md-8">.col-md-8</div>
+</div>
+{% endblock%}
+
